@@ -18,6 +18,3 @@ Client(ClientID, Surname, GivenName, Gender)
 Primary Key (ClientID)
 
 */
-
-
-

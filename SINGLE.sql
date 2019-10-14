@@ -179,3 +179,20 @@ AND B.EventDay = E.EventDay
 AND B.TourName = E.TourName
 INNER JOIN Tour T
 ON E.TourName = T.TourName;
+
+SELECT Count(DateBooked) from Booking;
+
+/*
+Ther are 10 trips from my qeury result and the query above shows same number.
+*/
+
+SELECT TourName, EventMonth, Count(ClientID) FROM Booking
+GROUP BY EventMonth, TourName;
+
+/*
+There are same result from my query.
+*/
+
+SELECT Avg(Payment) FROM Booking;
+/*
+The avg is 200, and my query shows all that is over 200, and there are 3 payment is 225.

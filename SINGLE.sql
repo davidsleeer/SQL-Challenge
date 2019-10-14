@@ -163,4 +163,19 @@ INNER JOIN Tour T
 ON E.TourName = T.TourName
 INNER JOIN Client C
 ON B.ClientID = C.ClientID
-WHERE B.payment >(SELECT avg(Payment) FROM Booking)
+WHERE B.payment >(SELECT avg(Payment) FROM Booking);
+
+CREATE VIEW ViewAll AS
+SELECT C.Surname, C.GivenName, T.TourName, 
+T.Description, E.EventYear, E.EventMonth, E.EventDay, E.EventFee,
+B.Payment, B.DateBooked
+FROM Client C
+INNER JOIN Booking B
+ON B.ClientID = C.ClientID
+INNER JOIN Event E
+ON B.EventYear = E.EventYear
+AND B.EventMonth = E.EventMonth
+AND B.EventDay = E.EventDay
+AND B.TourName = E.TourName
+INNER JOIN Tour T
+ON E.TourName = T.TourName;
